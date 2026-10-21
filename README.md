@@ -6,7 +6,7 @@
 
 # agri-logic-classifier
 
-🌐 English · [Español](Readme.es)
+🌐 English · [Español](Readme.es.md)
 
 **A transparent logic-based classifier for unfavorable agricultural situations.**
 
