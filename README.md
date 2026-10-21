@@ -1,4 +1,7 @@
+
 # agri-logic-classifier
+
+<img width="826" height="918" alt="script" src="https://github.com/user-attachments/assets/d84aeaf8-12d6-4c1b-9d7d-9502b1599514" />
 
 🌐 [English](#english) · [Español](#español)
 
