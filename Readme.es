@@ -1,0 +1,90 @@
+# agri-logic-classifier
+
+🌐 [English](README.md) · Español
+
+**Clasificador lógico transparente de situaciones agrícolas desfavorables.**
+
+Instituto Superior Politécnico Córdoba · Tecnicatura Superior en Ciencia de Datos e IA
+**Espacio curricular:** Lógica · **Docente:** Herrea, Julio · **Ciclo lectivo:** 2026
+**Integrantes:** Sferco, Emiliano Nicolás · Sukhovetskii, Artem · Tocci, Ivanna
+
+### Descripción
+
+Proyecto ABP que aplica **Lógica de Enunciados, Lógica de Primer Orden y Álgebra de Boole** al análisis de estimaciones agrícolas (Secretaría de Agricultura, Ganadería y Pesca, Datos Argentina). Las reglas se formalizan primero en lógica y luego se ejecutan sobre los datos, indicando para cada caso qué condiciones se cumplieron y por qué (explicabilidad).
+
+### Reglas lógicas
+
+| Símbolo | Condición |
+|---|---|
+| **P** | Tasa de superficie no cosechada > 20 %, con tasa = (sembrada − cosechada) / sembrada × 100 |
+| **Q** | Rendimiento regional < rendimiento nacional del mismo cultivo y campaña |
+| **R** | 3 o más caídas consecutivas de producción para una región y un cultivo |
+| **F** | Foco crítico: `F = (P ∧ Q) ∨ (P ∧ R) ∨ (Q ∧ R)` (al menos dos de las tres) |
+
+Cada caída de producción se analiza además por **incidencia**: si disminuyó la superficie cosechada, el rendimiento o ambos.
+Las campañas se comparan con la campaña disponible inmediatamente anterior de la misma serie (región y cultivo).
+
+### Contenido del repositorio
+
+| Archivo | Descripción |
+|---|---|
+| `clasificador_logico.py` | Script en Python que aplica las reglas y muestra el resultado y la explicación de cada caso |
+| `ABP_Logica_Clasificador.xlsx` | Datos de entrada y validación en Excel (hojas abajo) |
+| `resultado_clasificador.csv` | Salida generada por el script en cada ejecución |
+
+**Hojas del Excel**
+
+1. `MiniDataset`: recorte de datos reales (avena–Cuyo y lenteja–NOA, campañas 2015/2016 a 2024/2025).
+2. `Clasificador`: cálculo con fórmulas de P, Q, R, racha de caídas, foco crítico, explicación e incidencia. Los umbrales (20 % y 3 caídas) están en las celdas `O2` y `O3`.
+3. `Validación lógica`: las 8 combinaciones de la tabla de verdad contrastadas con casos reales, y control cruzado de los 15 casos contra los resultados esperados del dataset.
+
+### Requisitos
+
+- Python 3.9 o superior
+- `pandas` y `openpyxl`
+
+### Ejecución
+
+```bash
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install pandas openpyxl
+python clasificador_logico.py ABP_Logica_Clasificador.xlsx
+```
+
+Opcionalmente, un segundo argumento define el nombre del CSV de salida:
+
+```bash
+python clasificador_logico.py ABP_Logica_Clasificador.xlsx resultados.csv
+```
+
+### Salida
+
+El script imprime tres bloques y guarda el CSV:
+
+1. Tabla de resultados por caso (tasa, P, Q, racha, R, foco crítico, incidencia).
+2. Explicación lógica de cada clasificación.
+3. Conteo de casos por combinación P/Q/R.
+
+Al final compara sus resultados con las fórmulas de la hoja `Clasificador` del Excel.
+
+### Validación
+
+Sobre los 15 casos del mini-dataset aparecen las 8 combinaciones posibles de P/Q/R:
+
+| P Q R | Casos | Foco crítico |
+|---|---|---|
+| FFF | 1 | NO |
+| FFV | 1 | NO |
+| FVF | 3 | NO |
+| FVV | 1 | SÍ |
+| VFF | 1 | NO |
+| VFV | 1 | SÍ |
+| VVF | 6 | SÍ |
+| VVV | 1 | SÍ |
+
+Los resultados del script coinciden en los 15 casos con las fórmulas de Excel y con los valores esperados del dataset original.
+
+### Bibliografía
+
+Material de cátedra del ISPC (Apuntes 3, 4 y 5; Unidad 2: Lógica de Primer Orden; Unidad 3: Lógica Binaria) y Secretaría de Agricultura, Ganadería y Pesca, *Estimaciones agrícolas* (Datos Argentina).
