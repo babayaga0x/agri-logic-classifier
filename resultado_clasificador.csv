@@ -1,0 +1,16 @@
+﻿region,cultivo,campania,tasa_no_cosechada_%,P,Q,caida,racha_caidas,R,foco_critico,explicacion,incidencia_caida
+Cuyo,avena,2015/2016,87.46,True,False,False,0,False,False,"P=V, Q=F, R=F -> No es foco crítico: solo se cumple P (superficie no cosechada > 20 %).",-
+Cuyo,avena,2017/2018,90.61,True,True,True,1,False,True,"P=V, Q=V, R=F -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y Q (rendimiento regional < nacional).",Ambas (superficie cosechada y rendimiento)
+Cuyo,avena,2018/2019,86.36,True,True,True,2,False,True,"P=V, Q=V, R=F -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y Q (rendimiento regional < nacional).",Rendimiento
+Cuyo,avena,2019/2020,95.36,True,False,True,3,True,True,"P=V, Q=F, R=V -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y R (3 caídas consecutivas de producción).",Superficie cosechada
+Cuyo,avena,2020/2021,89.79,True,True,True,4,True,True,"P=V, Q=V, R=V -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y Q (rendimiento regional < nacional) y R (4 caídas consecutivas de producción).",Rendimiento
+Cuyo,avena,2021/2022,91.88,True,True,False,0,False,True,"P=V, Q=V, R=F -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y Q (rendimiento regional < nacional).",-
+Cuyo,avena,2022/2023,95.09,True,True,True,1,False,True,"P=V, Q=V, R=F -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y Q (rendimiento regional < nacional).",Ambas (superficie cosechada y rendimiento)
+Cuyo,avena,2023/2024,86.56,True,True,False,0,False,True,"P=V, Q=V, R=F -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y Q (rendimiento regional < nacional).",-
+Cuyo,avena,2024/2025,90.61,True,True,True,1,False,True,"P=V, Q=V, R=F -> FOCO CRÍTICO: se cumplen P (superficie no cosechada > 20 %) y Q (rendimiento regional < nacional).",Superficie cosechada
+NOA,lenteja,2019/2020,0.0,False,False,False,0,False,False,"P=F, Q=F, R=F -> No es foco crítico: no se cumple ninguna condición desfavorable.",-
+NOA,lenteja,2020/2021,4.4,False,True,True,1,False,False,"P=F, Q=V, R=F -> No es foco crítico: solo se cumple Q (rendimiento regional < nacional).",Rendimiento
+NOA,lenteja,2021/2022,0.0,False,True,True,2,False,False,"P=F, Q=V, R=F -> No es foco crítico: solo se cumple Q (rendimiento regional < nacional).",Ambas (superficie cosechada y rendimiento)
+NOA,lenteja,2022/2023,0.0,False,False,True,3,True,False,"P=F, Q=F, R=V -> No es foco crítico: solo se cumple R (3 caídas consecutivas de producción).",Superficie cosechada
+NOA,lenteja,2023/2024,0.0,False,True,True,4,True,True,"P=F, Q=V, R=V -> FOCO CRÍTICO: se cumplen Q (rendimiento regional < nacional) y R (4 caídas consecutivas de producción).",Superficie cosechada
+NOA,lenteja,2024/2025,0.0,False,True,False,0,False,False,"P=F, Q=V, R=F -> No es foco crítico: solo se cumple Q (rendimiento regional < nacional).",-
